@@ -1,0 +1,6 @@
+This is a sentence . This is also a sentence .
+And this is an exclamatory sentence !
+This sentence
+is broken across two lines .
+And finally , this is great .
+Of course this is great !
