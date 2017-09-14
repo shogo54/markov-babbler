@@ -8,8 +8,27 @@ def get_start_states(filename, ngramsize):
     multiple times.
     '''
 
-    # TODO: return all start states from the file
-    return ['start state 1', 'start state 2', 'start state 1']
+    startstates = []
+    wordlist = []
+    # put all the words in the word list
+    for line in open(filename):
+        line = line.rstrip()
+        for word in line.split(' '):
+            wordlist.append(word)
+
+    # put the first ngram in the startstates
+    firstngram = ' '.join(wordlist[:ngramsize])
+    startstates.append(firstngram)
+
+    # consider all of the words based on punctuation
+    # count is the number of the next word of the current word
+    count = 0
+    for word in wordlist:
+        count += 1
+        for punct in ['.', '!', '?']:
+            if word == punct and count + ngramsize < len(wordlist):
+                startstates.append(' '.join(wordlist[count:count + ngramsize]))
+    return startstates
 
 
 def get_possible_words(filename, ngramsize, state):
@@ -20,8 +39,20 @@ def get_possible_words(filename, ngramsize, state):
     ['an', 'great', 'great'] (or something like this in a different order).
     '''
 
-    # TODO: return all the words that could follow the given state
-    return ['dog', 'cat', 'dog', 'bird']
+    possiblewords = []
+    wordlist = []
+    # put all the words in the word list
+    for line in open(filename):
+        line = line.rstrip()
+        for word in line.split(' '):
+            wordlist.append(word)
+
+    # consider all of the words one by one
+    for index in range(len(wordlist)):
+        current = ' '.join(wordlist[index:index + ngramsize])
+        if current == state:
+            possiblewords.append(wordlist[index + ngramsize])
+    return possiblewords
 
 
 def babble(filename, ngramsize, numsentences):
@@ -32,8 +63,27 @@ def babble(filename, ngramsize, numsentences):
     '''
 
     # TODO: return sentences from the file
-    return ['sentence one', 'sentence two']
+    sentences = []
+    for i in range(numsentences):
+        firstngram = random.choice(get_start_states(filename, ngramsize))
+        wordlist = first_state_list(firstngram)
+        end = False
+        count = 0
+        while end == False:
+            current = ' '.join(wordlist[count:count + ngramsize])
+            next = random.choice(get_possible_words(filename, ngramsize, current))
+            wordlist.append(next)
+            count+=1
+            if next == '.' or next == '!' or next == '?':
+                end = True
+        sentences.append(' '.join(wordlist))
+    return sentences
 
+def first_state_list(string):
+    wordlist = []
+    for word in string.split(' '):
+        wordlist.append(word)
+    return wordlist
 
 def main():
     filename = 'test_cases/test1.txt'
@@ -53,16 +103,23 @@ def main():
 
 def test1():
     filename = 'test_cases/test1.txt'
-    ngram = 3
+    ngram = 2
     numsentences = 2
 
     possible_words = get_possible_words(filename, ngram, 'this is')
-    assert('an' in possible_words)
-    assert(possible_words.count('great') == 2)
+    assert ('an' in possible_words)
+    assert (possible_words.count('great') == 2)
+    for i in possible_words:
+        print i
 
     start_states = get_start_states(filename, ngram)
-    assert('This is' in start_states)
-    # TODO: you should check other possible start states
+    assert ('This is' in start_states)
+    assert ('And this' in start_states)
+    assert ('This sentence' in start_states)
+    assert ('And finally' in start_states)
+    assert ('Of course' in start_states)
+    for i in start_states:
+        print i
 
     # setting a seed for the random number generator means that the sequence
     # of pseudo-random numbers is the same for each run of the code.
@@ -74,5 +131,5 @@ def test1():
 
 
 if __name__ == '__main__':
-    test1()
-    # main()
+    # test1()
+    main()
