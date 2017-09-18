@@ -29,7 +29,7 @@ def main():
     n4 = Ninja('deandre', 90)
     ninjas = [n1, n2, n3, n4]
     # print(n1)
-    # join is a great function to combine with map and a list
+    # map is a great function to combine with map and a list
     print(', '.join(map(str, sorted(ninjas))))
 
 

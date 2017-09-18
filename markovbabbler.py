@@ -21,7 +21,7 @@ def get_start_states(filename, ngramsize):
     startstates.append(firstngram)
 
     # consider all of the words based on punctuation
-    # count is the number of the next word of the current word
+    # count is the number of the adjacent word to the current word
     count = 0
     for word in wordlist:
         count += 1
@@ -62,7 +62,6 @@ def babble(filename, ngramsize, numsentences):
     a new key, and continue until you reach a stop token (such as . or !)
     '''
 
-    # TODO: return sentences from the file
     sentences = []
     for i in range(numsentences):
         firstngram = random.choice(get_start_states(filename, ngramsize))
@@ -76,8 +75,9 @@ def babble(filename, ngramsize, numsentences):
             count+=1
             if next == '.' or next == '!' or next == '?':
                 end = True
-        sentences.append(' '.join(wordlist))
+        sentences.append(' '.join(wordlist).lstrip())
     return sentences
+
 
 def first_state_list(string):
     wordlist = []
@@ -85,14 +85,15 @@ def first_state_list(string):
         wordlist.append(word)
     return wordlist
 
+
 def main():
-    filename = 'test_cases/test1.txt'
+    filename = 'test_cases/msd.txt'
     ngram = 3
-    numsentences = 2
+    numsentences = 5
     if len(sys.argv) > 3:
         filename = sys.argv[1]
         ngram = int(sys.argv[2])
-        numsentence = int(sys.argv[3])
+        numsentences = int(sys.argv[3])
     print('generate {} sentences from file {} using ngram size {}'.format(
         numsentences, filename, ngram))
 
