@@ -39,20 +39,31 @@ def get_possible_words(filename, ngramsize, state):
     ['an', 'great', 'great'] (or something like this in a different order).
     '''
 
-    possiblewords = []
+    # main part is in get_word_dict
+    dict = get_word_dict(filename, ngramsize)
+    return dict[state]
+
+
+def get_word_dict(filename, ngramsize):
+    dict = {}
     wordlist = []
+
     # put all the words in the word list
     for line in open(filename):
         line = line.rstrip()
         for word in line.split(' '):
             wordlist.append(word)
 
-    # consider all of the words one by one
+    # put all of the ngrams one by one
     for index in range(len(wordlist)):
-        current = ' '.join(wordlist[index:index + ngramsize])
-        if current == state:
-            possiblewords.append(wordlist[index + ngramsize])
-    return possiblewords
+        if index + ngramsize < len(wordlist):
+            ngram = ' '.join(wordlist[index:index + ngramsize])
+            next = wordlist[index + ngramsize]
+            if ngram not in dict:
+                dict[ngram] = []
+            dict[ngram].append(next)
+
+    return dict
 
 
 def babble(filename, ngramsize, numsentences):
@@ -62,17 +73,19 @@ def babble(filename, ngramsize, numsentences):
     a new key, and continue until you reach a stop token (such as . or !)
     '''
 
+    startstates = get_start_states(filename, ngramsize)
+    dict = get_word_dict(filename, ngramsize)
     sentences = []
     for i in range(numsentences):
-        firstngram = random.choice(get_start_states(filename, ngramsize))
+        firstngram = random.choice(startstates)
         wordlist = first_state_list(firstngram)
         end = False
         count = 0
         while end == False:
-            current = ' '.join(wordlist[count:count + ngramsize])
-            next = random.choice(get_possible_words(filename, ngramsize, current))
+            ngram = ' '.join(wordlist[count:count + ngramsize])
+            next = random.choice(dict[ngram])
             wordlist.append(next)
-            count+=1
+            count += 1
             if next == '.' or next == '!' or next == '?':
                 end = True
         sentences.append(' '.join(wordlist).lstrip())
@@ -87,9 +100,9 @@ def first_state_list(string):
 
 
 def main():
-    filename = 'test_cases/msd.txt'
-    ngram = 3
-    numsentences = 5
+    filename = 'shakespeare.txt'
+    ngram = 2
+    numsentences = 10
     if len(sys.argv) > 3:
         filename = sys.argv[1]
         ngram = int(sys.argv[2])
