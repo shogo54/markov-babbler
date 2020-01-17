@@ -2,37 +2,39 @@ import sys
 import random
 
 
-def get_start_states(filename, ngramsize):
-    '''Return a list of the states that can start a new sentence. If a state
+def get_start_states(filename, ngram_size):
+    '''
+    Return a list of the states that can start a new sentence. If a state
     is used to start a sentence multiple times, it should also be in the list
     multiple times.
     '''
 
-    startstates = []
-    wordlist = []
+    start_states = []
+    word_list = []
     # put all the words in the word list
     for line in open(filename):
         line = line.rstrip()
         for word in line.split(' '):
-            wordlist.append(word)
+            word_list.append(word)
 
     # put the first ngram in the startstates
-    firstngram = ' '.join(wordlist[:ngramsize])
-    startstates.append(firstngram)
+    firstngram = ' '.join(word_list[:ngram_size])
+    start_states.append(firstngram)
 
     # consider all of the words based on punctuation
     # count is the number of the adjacent word to the current word
     count = 0
-    for word in wordlist:
+    for word in word_list:
         count += 1
         for punct in ['.', '!', '?']:
-            if word == punct and count + ngramsize < len(wordlist):
-                startstates.append(' '.join(wordlist[count:count + ngramsize]))
-    return startstates
+            if word == punct and count + ngram_size < len(word_list):
+                start_states.append(' '.join(word_list[count:count + ngram_size]))
+    return start_states
 
 
-def get_possible_words(filename, ngramsize, state):
-    '''Use the text contained in the file with given filename to create a map
+def get_possible_words(filename, ngram_size, state):
+    '''
+    Use the text contained in the file with given filename to create a map
     of ngrams of the given ngram size. Then return the list of all words that
     could follow the given state. For example, for test_cases/test1.txt, with
     ngram size of 2 and the state "this is", we should return the list:
@@ -40,25 +42,25 @@ def get_possible_words(filename, ngramsize, state):
     '''
 
     # main part is in get_word_dict
-    dict = get_word_dict(filename, ngramsize)
+    dict = get_word_dict(filename, ngram_size)
     return dict[state]
 
 
-def get_word_dict(filename, ngramsize):
+def get_word_dict(filename, ngram_size):
     dict = {}
-    wordlist = []
+    word_list = []
 
     # put all the words in the word list
     for line in open(filename):
         line = line.rstrip()
         for word in line.split(' '):
-            wordlist.append(word)
+            word_list.append(word)
 
     # put all of the ngrams one by one
-    for index in range(len(wordlist)):
-        if index + ngramsize < len(wordlist):
-            ngram = ' '.join(wordlist[index:index + ngramsize])
-            next = wordlist[index + ngramsize]
+    for index in range(len(word_list)):
+        if index + ngram_size < len(word_list):
+            ngram = ' '.join(word_list[index:index + ngram_size])
+            next = word_list[index + ngram_size]
             if ngram not in dict:
                 dict[ngram] = []
             dict[ngram].append(next)
@@ -66,51 +68,52 @@ def get_word_dict(filename, ngramsize):
     return dict
 
 
-def babble(filename, ngramsize, numsentences):
-    '''Generate the given number of sentences using the given ngram size.
+def babble(filename, ngram_size, num_sentences):
+    '''
+    Generate the given number of sentences using the given ngram size.
     Create a dictionary where keys are each n-1 words, and the values
     are the words that can follow in a list. Randomly pick a word, generate
     a new key, and continue until you reach a stop token (such as . or !)
     '''
 
-    startstates = get_start_states(filename, ngramsize)
-    dict = get_word_dict(filename, ngramsize)
+    start_states = get_start_states(filename, ngram_size)
+    dict = get_word_dict(filename, ngram_size)
     sentences = []
-    for i in range(numsentences):
-        firstngram = random.choice(startstates)
-        wordlist = first_state_list(firstngram)
+    for i in range(num_sentences):
+        first_ngram = random.choice(start_states)
+        word_list = first_state_list(first_ngram)
         end = False
         count = 0
         while end == False:
-            ngram = ' '.join(wordlist[count:count + ngramsize])
+            ngram = ' '.join(word_list[count:count + ngram_size])
             next = random.choice(dict[ngram])
-            wordlist.append(next)
+            word_list.append(next)
             count += 1
             if next == '.' or next == '!' or next == '?':
                 end = True
-        sentences.append(' '.join(wordlist).lstrip())
+        sentences.append(' '.join(word_list).lstrip())
     return sentences
 
 
 def first_state_list(string):
-    wordlist = []
+    word_list = []
     for word in string.split(' '):
-        wordlist.append(word)
-    return wordlist
+        word_list.append(word)
+    return word_list
 
 
 def main():
-    filename = 'shakespeare.txt'
+    filename = 'test_cases/shakespeare.txt'
     ngram = 2
-    numsentences = 10
+    num_sentences = 10
     if len(sys.argv) > 3:
         filename = sys.argv[1]
         ngram = int(sys.argv[2])
-        numsentences = int(sys.argv[3])
+        num_sentences = int(sys.argv[3])
     print('generate {} sentences from file {} using ngram size {}'.format(
-        numsentences, filename, ngram))
+        num_sentences, filename, ngram))
 
-    sentences = babble(filename, ngram, numsentences)
+    sentences = babble(filename, ngram, num_sentences)
     for sentence in sentences:
         print(sentence)
 
@@ -118,7 +121,7 @@ def main():
 def test1():
     filename = 'test_cases/test1.txt'
     ngram = 2
-    numsentences = 2
+    num_sentences = 2
 
     possible_words = get_possible_words(filename, ngram, 'this is')
     assert ('an' in possible_words)
@@ -139,7 +142,7 @@ def test1():
     # of pseudo-random numbers is the same for each run of the code.
     random.seed(0)
     # TODO make sure the sentences you generate make sense
-    sentences = babble(filename, ngram, numsentences)
+    sentences = babble(filename, ngram, num_sentences)
     for sentence in sentences:
         print(sentence)
 
