@@ -3,16 +3,12 @@
 This was a class assignment for CS 317 (Artificial Intelligence) in the Fall term in 2017 at Knox College. 
 I built a “Markov Babbler” that uses [Markov Chains](https://en.wikipedia.org/wiki/Markov_chain) to “babble” random sentences.
 
-I trained our babbler on a large amount of text (usually called a _corpus_), and then have it generate random sentences that sound vaguely like they were written by the same author as the training set.
+I trained the babbler on a large amount of text (usually called a _corpus_), and then have it generate random sentences that sound vaguely like they were written by the same author as the training set.
 
-**Note** Don’t train the babbler on racist tweets or it could end up sounding like Microsoft’s now-defunct [Nazi-sympathizing, Holocaust-denying Twitter-bot Tay](http://theantimedia.org/microsofts-new-twitter-bot-becomes-nazi-sympathizing-maniac-within-24-hours/), which probably used something like Markov Chains in its implementation.
+## Project Overview
 
-The complete works of Shakespeare is available [in a huge text file here](https://drive.google.com/open?id=0B8YG7KPaRWn7bXEwUDlOSEV6QXc) (only visible on campus), or you can use any large amount of text you are interested in. 
-[Project Gutenberg](http://www.gutenberg.org/) online has a ton of this sort of thing available, although you will have to process it somewhat to get it into the right format by breaking out all of the punctuation.
-
-The starter Python program is `markovbabbler.py`. 
-There are several additional programs in the Github project for you to check out:
-* `count.py` counts the number of occurrences of the word 'the'
++ `markovbabbler.py` is the main program of this project. 
++ `count.py` counts the number of occurrences of the word 'the' in the target file
 
 ## Ngrams and Markov Chains
 
@@ -71,3 +67,10 @@ In the example above, all sentences start with ‘mary had’.
 The below is a diagram for the ‘mary had a little lamb’ example:
 
 ![Mary had a little lamb](http://i.imgur.com/kCnOEiV.png)
+
+## Text for Training
+The program can be trained by any text, but the text need to be processed somewhat to get it into the right format by breaking out all of the punctuation.
++ [Project Gutenberg](http://www.gutenberg.org/) online has a lot of this kind of resources available
+
+**Note** Don’t train the babbler on racist tweets or it could end up sounding like Microsoft’s now-defunct [Nazi-sympathizing, Holocaust-denying Twitter-bot Tay](http://theantimedia.org/microsofts-new-twitter-bot-becomes-nazi-sympathizing-maniac-within-24-hours/), which probably used something like Markov Chains in its implementation.
+
