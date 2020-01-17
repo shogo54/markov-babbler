@@ -5,10 +5,14 @@ I built a “Markov Babbler” that uses [Markov Chains](https://en.wikipedia.or
 
 I trained the babbler on a large amount of text (usually called a _corpus_), and then have it generate random sentences that sound vaguely like they were written by the same author as the training set.
 
+**Note** This project is written in Python2.7, which is not officially supported after January 1, 2020 (as of January 17, 2020).
+
+
 ## Project Overview
 
 + `markovbabbler.py` is the main program of this project. 
 + `count.py` counts the number of occurrences of the word 'the' in the target file
+
 
 ## Ngrams and Markov Chains
 
@@ -67,6 +71,7 @@ In the example above, all sentences start with ‘mary had’.
 The below is a diagram for the ‘mary had a little lamb’ example:
 
 ![Mary had a little lamb](http://i.imgur.com/kCnOEiV.png)
+
 
 ## Text for Training
 The program can be trained by any text, but the text need to be processed somewhat to get it into the right format by breaking out all of the punctuation.
