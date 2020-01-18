@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c63f962-e4dd-474d-b02c-60103398df75" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/markovbabbler.py" beforeDir="false" afterPath="$PROJECT_DIR$/markovbabbler.py" afterDir="false" />
-    </list>
+    <list default="true" id="5c63f962-e4dd-474d-b02c-60103398df75" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
