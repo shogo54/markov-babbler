@@ -18,8 +18,8 @@ def get_start_states(filename, ngram_size):
             word_list.append(word)
 
     # put the first ngram in the startstates
-    firstngram = ' '.join(word_list[:ngram_size])
-    start_states.append(firstngram)
+    first_ngram = ' '.join(word_list[:ngram_size])
+    start_states.append(first_ngram)
 
     # consider all of the words based on punctuation
     # count is the number of the adjacent word to the current word
@@ -60,10 +60,10 @@ def get_word_dict(filename, ngram_size):
     for index in range(len(word_list)):
         if index + ngram_size < len(word_list):
             ngram = ' '.join(word_list[index:index + ngram_size])
-            next = word_list[index + ngram_size]
+            next_word = word_list[index + ngram_size]
             if ngram not in dict:
                 dict[ngram] = []
-            dict[ngram].append(next)
+            dict[ngram].append(next_word)
 
     return dict
 
@@ -84,12 +84,12 @@ def babble(filename, ngram_size, num_sentences):
         word_list = first_state_list(first_ngram)
         end = False
         count = 0
-        while end == False:
+        while end is False:
             ngram = ' '.join(word_list[count:count + ngram_size])
-            next = random.choice(dict[ngram])
-            word_list.append(next)
+            next_word = random.choice(dict[ngram])
+            word_list.append(next_word)
             count += 1
-            if next == '.' or next == '!' or next == '?':
+            if next_word == '.' or next_word == '!' or next_word == '?':
                 end = True
         sentences.append(' '.join(word_list).lstrip())
     return sentences
@@ -115,7 +115,7 @@ def main():
 
     sentences = babble(filename, ngram, num_sentences)
     for sentence in sentences:
-        print(sentence)
+        print sentence
 
 
 def test1():
@@ -141,10 +141,9 @@ def test1():
     # setting a seed for the random number generator means that the sequence
     # of pseudo-random numbers is the same for each run of the code.
     random.seed(0)
-    # TODO make sure the sentences you generate make sense
     sentences = babble(filename, ngram, num_sentences)
     for sentence in sentences:
-        print(sentence)
+        print sentence
 
 
 if __name__ == '__main__':
