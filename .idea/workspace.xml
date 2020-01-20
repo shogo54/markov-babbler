@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c63f962-e4dd-474d-b02c-60103398df75" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/markov-babbler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/markov-babbler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/shogo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/babbler.py" beforeDir="false" afterPath="$PROJECT_DIR$/babbler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_markov.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_markov.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +23,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_markov.py">
+  <component name="RunManager" selected="Python.babbler">
     <configuration name="babbler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="markov-babbler" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -111,8 +113,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in test_markov.py" />
         <item itemvalue="Python.babbler" />
+        <item itemvalue="Python tests.Unittests in test_markov.py" />
         <item itemvalue="Python tests.Unittests for test_markov.TestMarkovBabbler2.test_stoppers" />
         <item itemvalue="Python tests.Unittests for test_markov.TestMarkovBabbler3.test_next_states" />
         <item itemvalue="Python tests.Unittests for test_markov.TestMarkovBabbler3.test_ngrams" />
@@ -143,6 +145,7 @@
       <updated>1579279793523</updated>
       <workItem from="1579474235946" duration="3323000" />
       <workItem from="1579494583249" duration="23000" />
+      <workItem from="1579541009035" duration="8124000" />
     </task>
     <servers />
   </component>
@@ -150,22 +153,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1340" height="266" key="GridCell.Tab.0.bottom" timestamp="1579476122355">
+    <state width="914" height="266" key="GridCell.Tab.0.bottom" timestamp="1579542368425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579476122355" />
-    <state width="1340" height="266" key="GridCell.Tab.0.center" timestamp="1579476122354">
+    <state width="914" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
+    <state width="914" height="266" key="GridCell.Tab.0.center" timestamp="1579542368425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579476122354" />
-    <state width="1340" height="266" key="GridCell.Tab.0.left" timestamp="1579476122354">
+    <state width="914" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
+    <state width="914" height="266" key="GridCell.Tab.0.left" timestamp="1579542368425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579476122354" />
-    <state width="1340" height="266" key="GridCell.Tab.0.right" timestamp="1579476122354">
+    <state width="914" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
+    <state width="914" height="266" key="GridCell.Tab.0.right" timestamp="1579542368425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579476122354" />
+    <state width="914" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
     <state width="1340" height="327" key="GridCell.Tab.1.bottom" timestamp="1579474703564">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -186,10 +189,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="883" y="212" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579494604927" />
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1579494586022">
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1579541009361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579494586022" />
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579541009361" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler3_test_ngrams.coverage" NAME="Unittests for test_markov.TestMarkovBabbler3.test_ngrams Coverage Results" MODIFIED="1579474714494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -197,10 +200,10 @@
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler2_test_ngrams.coverage" NAME="Unittests for test_markov.TestMarkovBabbler2.test_ngrams Coverage Results" MODIFIED="1579474698119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler3_test_stoppers.coverage" NAME="Unittests for test_markov.TestMarkovBabbler3.test_stoppers Coverage Results" MODIFIED="1579474711975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler2_test_stoppers.coverage" NAME="Unittests for test_markov.TestMarkovBabbler2.test_stoppers Coverage Results" MODIFIED="1579476014768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/markov_babbler$babbler.coverage" NAME="babbler Coverage Results" MODIFIED="1579476113886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/markov_babbler$babbler.coverage" NAME="babbler Coverage Results" MODIFIED="1579542368414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler2_test_next_states.coverage" NAME="Unittests for test_markov.TestMarkovBabbler2.test_next_states Coverage Results" MODIFIED="1579474703545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler3_test_next_states.coverage" NAME="Unittests for test_markov.TestMarkovBabbler3.test_next_states Coverage Results" MODIFIED="1579474716496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/markov_babbler$Unittests_in_test_markov_py.coverage" NAME="Unittests in test_markov.py Coverage Results" MODIFIED="1579476122346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/markov_babbler$Unittests_in_test_markov_py.coverage" NAME="Unittests in test_markov.py Coverage Results" MODIFIED="1579541031231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler3_test_starters.coverage" NAME="Unittests for test_markov.TestMarkovBabbler3.test_starters Coverage Results" MODIFIED="1579474708317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/markov_babbler$markovbabbler.coverage" NAME="markovbabbler Coverage Results" MODIFIED="1579474439297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
