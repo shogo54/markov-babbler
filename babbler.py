@@ -1,33 +1,41 @@
 import random
-import glob
 import sys
-
-"""
-Markov Babbler
-
-After being trained on text from various authors, can
-'babble', or generate random walks, and produce text that
-vaguely sounds like the author.
-"""
 
 
 class Babbler:
+    """
+    Markov Babbler
+
+    After being trained on text from various authors, can
+    'babble', or generate random walks, and produce text that
+    vaguely sounds like the author.
+
+    Attributes:
+        n (int): The length of an n-gram for state.
+        starters (list):
+        stoppers (list):
+        dictionary (dict):
+    """
+
     def __init__(self, n, seed=None):
         """
-        n is the length of an n-gram for state.
-        seed is the seed for a random number generation. If none given use the default.
+        The constructor for Babbler class.
+
+        Parameters:
+            n (int): n is the length of an n-gram for state.
+            seed (int): The seed for a random number generation. If none given use the default.
         """
         self.n = n
-        if seed is not None:
-            random.seed(seed)
-        # TODO: your code goes here
         self.starters = []
         self.stoppers = []
-        self.dict = {}
+        self.dictionary = {}
+        if seed is not None:
+            random.seed(seed)
 
     def add_sentence(self, sentence):
         """
         Process the given sentence.
+
         The sentence is a string separated by spaces. Break it into
         words using split(). Convert each word to lowercase using lower().
         Then start processing n-grams and updating your states.
@@ -37,27 +45,20 @@ class Babbler:
         special symbol 'EOL' in the state transition table. 'EOL' is short
         for 'end of line', and since it is capitalized and all of the
         text from the book is lower-case, it will be unambiguous.
+
+        :parameter
         """
-        words = sentence.split()
-        l_ngram = words[0:self.n]
-        s_ngram = ' '.join(l_ngram)
+        words = sentence.split() + ['EOL']
+        s_ngram = ' '.join(words[0:self.n])
         self.starters.append(s_ngram)
+        self.stoppers.append(' '.join(words[-1 - self.n:-1]))
 
         for word in words[self.n:]:
-            if s_ngram in self.dict:
-                self.dict[s_ngram].append(word)
+            if s_ngram in self.dictionary:
+                self.dictionary[s_ngram].append(word)
             else:
-                self.dict[s_ngram] = [word]
-
-            l_ngram.pop(0)
-            l_ngram.append(word)
-            s_ngram = ' '.join(l_ngram)
-
-        if s_ngram in self.dict:
-            self.dict[s_ngram].append('EOL')
-        else:
-            self.dict[s_ngram] = ['EOL']
-        self.stoppers.append(s_ngram)
+                self.dictionary[s_ngram] = [word]
+            s_ngram = ' '.join(s_ngram.split()[1:] + [word])
 
     def add_file(self, filename):
         """
@@ -99,7 +100,7 @@ class Babbler:
 
         If the given state never occurs, return an empty list.
         """
-        return self.dict[ngram]
+        return self.dictionary[ngram]
 
     def get_all_ngrams(self):
         """
@@ -108,7 +109,7 @@ class Babbler:
         
         Probably a one-line method.
         """
-        return self.dict.keys()
+        return self.dictionary.keys()
 
     def has_successor(self, ngram):
         """
@@ -117,7 +118,7 @@ class Babbler:
         if we have ever seen a given ngram, because ngrams with no successor
         words must not have occurred in the training sentences.
         """
-        return ngram in self.dict
+        return ngram in self.dictionary
 
     def get_random_successor(self, ngram):
         """
@@ -132,8 +133,7 @@ class Babbler:
         and we call get_random_next_word() for the state 'the dog dances',
         we should get 'quickly' about 1/3 of the time, and 'with' 2/3 of the time.
         """
-        index = random.randrange(len(self.dict[ngram]))
-        return self.dict[ngram][index]
+        return random.choice(self.get_successors(ngram))
 
     def babble(self):
         """
@@ -152,31 +152,27 @@ class Babbler:
         This produces 'b c d' for our example.
         6: Repeat step #2 until you generate 'EOL'.
         """
-        index = random.randrange(len(self.starters))
-        ngram = self.starters[index]
-        sentence = ngram
+        ngram = random.choice(self.starters)
+        sentence = [ngram]
 
         while ngram not in self.stoppers:
             next_word = self.get_random_successor(ngram)
-            ngram = ' '.join(ngram.split()[1:]) + next_word
-            sentence += ' ' + next_word
+            ngram = ' '.join(ngram.split()[1:] + [next_word])
+            sentence.append(next_word)
 
-        return sentence
+        return ' '.join(sentence)
 
 
 def main(n=3, filename='tests/test1.txt', num_sentences=5):
     """
     Simple test driver.
     """
-
-    print(filename)
     babbler = Babbler(n)
     babbler.add_file(filename)
-
+    print(filename)
     print(f'num starters {len(babbler.get_starters())}')
     print(f'num ngrams {len(babbler.get_all_ngrams())}')
     print(f'num stoppers {len(babbler.get_stoppers())}')
-    print(babbler.get_all_ngrams())
     for _ in range(num_sentences):
         print(babbler.babble())
 
