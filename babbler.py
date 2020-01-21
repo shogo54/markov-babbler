@@ -192,7 +192,6 @@ class Babbler:
         return ' '.join(sentence)
 
 
-
 def main(n=3, file_name='tests/test1.txt', num_sentences=5):
     """
     Simple test driver.

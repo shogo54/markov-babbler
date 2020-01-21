@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c63f962-e4dd-474d-b02c-60103398df75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/shogo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/babbler.py" beforeDir="false" afterPath="$PROJECT_DIR$/babbler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_markov.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_markov.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +24,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shogo\PythonProjects\markov-babbler" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.babbler">
     <configuration name="babbler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -145,7 +147,7 @@
       <updated>1579279793523</updated>
       <workItem from="1579474235946" duration="3323000" />
       <workItem from="1579494583249" duration="23000" />
-      <workItem from="1579541009035" duration="8124000" />
+      <workItem from="1579541009035" duration="12381000" />
     </task>
     <servers />
   </component>
@@ -153,22 +155,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="914" height="266" key="GridCell.Tab.0.bottom" timestamp="1579542368425">
+    <state width="914" height="266" key="GridCell.Tab.0.bottom" timestamp="1579572079462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
-    <state width="914" height="266" key="GridCell.Tab.0.center" timestamp="1579542368425">
+    <state width="914" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
+    <state width="914" height="266" key="GridCell.Tab.0.center" timestamp="1579572079462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
-    <state width="914" height="266" key="GridCell.Tab.0.left" timestamp="1579542368425">
+    <state width="914" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
+    <state width="914" height="266" key="GridCell.Tab.0.left" timestamp="1579572079462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
-    <state width="914" height="266" key="GridCell.Tab.0.right" timestamp="1579542368425">
+    <state width="914" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
+    <state width="914" height="266" key="GridCell.Tab.0.right" timestamp="1579572079462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579542368425" />
+    <state width="914" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
     <state width="1340" height="327" key="GridCell.Tab.1.bottom" timestamp="1579474703564">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

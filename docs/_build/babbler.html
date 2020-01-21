@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>babbler module &#8212; markov-babbler  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to markov-babbler’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-babbler">
+<span id="babbler-module"></span><h1>babbler module<a class="headerlink" href="#module-babbler" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="babbler.Babbler">
+<em class="property">class </em><code class="sig-prename descclassname">babbler.</code><code class="sig-name descname">Babbler</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Markov Babbler</p>
+<p>After being trained on text from various authors, can
+‘babble’, or generate random walks, and produce text that
+vaguely sounds like the author.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – The length of an n-gram for state</p></li>
+<li><p><strong>starters</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – The list of possible starting ngrams</p></li>
+<li><p><strong>stoppers</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – The list of possible ending ngrams</p></li>
+<li><p><strong>dictionary</strong> (<em>dict</em><em>(</em><em>str</em><em>, </em><em>list</em><em>(</em><em>str</em><em>)</em><em>)</em>) – The dictionary mapping a ngram to the list of its successors</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="babbler.Babbler.add_sentence">
+<code class="sig-name descname">add_sentence</code><span class="sig-paren">(</span><em class="sig-param">sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.add_sentence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.add_sentence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the given sentence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sentence</strong> (<em>str</em>) – The string separated by spaces.
+The sentence is expected to be lowercase.</p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>words</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – The list converted from the given sentence.</p></li>
+<li><p><strong>ngram</strong> (<em>str</em>) – The current ngram.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.add_file">
+<code class="sig-name descname">add_file</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.add_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.add_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the file with the given file_name.</p>
+<p>The method is assuming that the input data has already
+been pre-processed so that each sentence is on a separate line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_name</strong> (<em>str</em>) – The name of the target file directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.get_starters">
+<code class="sig-name descname">get_starters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.get_starters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.get_starters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all n-grams that start any sentence the program has seen.</p>
+<p>The resulting list may contain duplicates because one n-gram may start
+multiple sentences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return starters</dt>
+<dd class="field-odd"><p>The list of possible starting ngrams</p>
+</dd>
+<dt class="field-even">Rtype starters</dt>
+<dd class="field-even"><p>list(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.get_stoppers">
+<code class="sig-name descname">get_stoppers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.get_stoppers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.get_stoppers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all n-grams that stop any sentence the program has seen.</p>
+<p>The resulting value may contain duplicates because one n-gram may stop
+multiple sentences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of possible ending ngrams</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.get_successors">
+<code class="sig-name descname">get_successors</code><span class="sig-paren">(</span><em class="sig-param">ngram</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.get_successors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.get_successors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of words that may follow the given n-gram.
+If the given state never occurs, return an empty list.</p>
+<p>The resulting list may contain duplicates, because each
+n-gram may be followed by different words.</p>
+<p>For example, suppose an author has the following sentences:
+‘the dog dances quickly’
+‘the dog dances with the cat’
+‘the dog dances with me’</p>
+<p>If n=3, then the n-gram ‘the dog dances’ is followed by
+‘quickly’ one time, and ‘with’ two times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ngram</strong> (<em>str</em>) – The ngram to search its successors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list of words that may follow the given n-gram.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.get_all_ngrams">
+<code class="sig-name descname">get_all_ngrams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.get_all_ngrams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.get_all_ngrams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all the possible n-grams that the program has seen
+across all sentences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>All the possible n-grams</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dictionary view object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.has_successor">
+<code class="sig-name descname">has_successor</code><span class="sig-paren">(</span><em class="sig-param">ngram</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.has_successor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.has_successor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the given ngram has at least one possible successor
+word, and False if it does not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ngram</strong> (<em>str</em>) – The ngram to search if its successors exist or not</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If the give ngram has at least one successor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.get_random_successor">
+<code class="sig-name descname">get_random_successor</code><span class="sig-paren">(</span><em class="sig-param">ngram</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.get_random_successor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.get_random_successor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an n-gram, randomly pick from the possible words
+that could follow that n-gram.</p>
+<p>The randomness should take into account how likely
+a word is to follow the given n-gram.
+For example, if n=3 and the program is train on these three sentences:
+‘the dog dances quickly’
+‘the dog dances with the cat’
+‘the dog dances with me’
+and get_random_next_word() is called for the state ‘the dog dances’,
+the program returns ‘quickly’ about 1/3 of the time, and ‘with’ 2/3 of the time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ngram</strong> (<em>str</em>) – The ngram to get its random successor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The randomly selected word that could follow the given ngram</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="babbler.Babbler.babble">
+<code class="sig-name descname">babble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#Babbler.babble"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.Babbler.babble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a random sentence based on the trained texts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ngram</strong> (<em>str</em>) – </p></li>
+<li><p><strong>sentece</strong> – The list of sequenced words generated so far</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A random sentence generated based on the trained texts</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="babbler.main">
+<code class="sig-prename descclassname">babbler.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><em class="sig-param">n=3</em>, <em class="sig-param">file_name='tests/test1.txt'</em>, <em class="sig-param">num_sentences=5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/babbler.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#babbler.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple test driver.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to markov-babbler’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<h1 class="logo"><a href="index.html">markov-babbler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">babbler module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shogo Akiyama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/babbler.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

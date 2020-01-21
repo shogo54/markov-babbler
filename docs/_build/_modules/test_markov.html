@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>test_markov &#8212; markov-babbler  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for test_markov</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">babbler</span> <span class="kn">import</span> <span class="n">Babbler</span>
+
+
+<div class="viewcode-block" id="TestMarkovBabbler2"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler2">[docs]</a><span class="k">class</span> <span class="nc">TestMarkovBabbler2</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestMarkovBabbler2.setUp"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler2.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span> <span class="o">=</span> <span class="n">Babbler</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="s1">&#39;tests/test1.txt&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler2.test_starters"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler2.test_starters">[docs]</a>    <span class="k">def</span> <span class="nf">test_starters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a b&#39;</span><span class="p">,</span> <span class="s1">&#39;a b&#39;</span><span class="p">,</span> <span class="s1">&#39;a b&#39;</span><span class="p">,</span> <span class="s1">&#39;a b&#39;</span><span class="p">,</span> <span class="s1">&#39;x y&#39;</span><span class="p">,</span> <span class="s1">&#39;x y&#39;</span><span class="p">]</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_starters</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler2.test_stoppers"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler2.test_stoppers">[docs]</a>    <span class="k">def</span> <span class="nf">test_stoppers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;c !&#39;</span><span class="p">,</span> <span class="s1">&#39;c ?&#39;</span><span class="p">,</span> <span class="s1">&#39;d .&#39;</span><span class="p">,</span> <span class="s1">&#39;e .&#39;</span><span class="p">,</span> <span class="s1">&#39;e .&#39;</span><span class="p">,</span> <span class="s1">&#39;z .&#39;</span><span class="p">]</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_stoppers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler2.test_ngrams"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler2.test_ngrams">[docs]</a>    <span class="k">def</span> <span class="nf">test_ngrams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a b&#39;</span><span class="p">,</span> <span class="s1">&#39;b c&#39;</span><span class="p">,</span> <span class="s1">&#39;c !&#39;</span><span class="p">,</span> <span class="s1">&#39;c ?&#39;</span><span class="p">,</span> <span class="s1">&#39;c d&#39;</span><span class="p">,</span> <span class="s1">&#39;c e&#39;</span><span class="p">,</span> <span class="s1">&#39;c x&#39;</span><span class="p">,</span> <span class="s1">&#39;d .&#39;</span><span class="p">,</span> <span class="s1">&#39;d e&#39;</span><span class="p">,</span> <span class="s1">&#39;e .&#39;</span><span class="p">,</span> <span class="s1">&#39;x y&#39;</span><span class="p">,</span> <span class="s1">&#39;y z&#39;</span><span class="p">,</span> <span class="s1">&#39;z .&#39;</span><span class="p">,</span> <span class="s1">&#39;z a&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;z z&#39;</span><span class="p">]</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_all_ngrams</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler2.test_next_states"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler2.test_next_states">[docs]</a>    <span class="k">def</span> <span class="nf">test_next_states</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;b c&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c !&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c ?&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c d&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;d .&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;d e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;e .&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">,</span> <span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;x y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;y z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;z .&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;z a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;z z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]}</span>
+        <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_all_ngrams</span><span class="p">():</span>
+            <span class="n">actual</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_successors</span><span class="p">(</span><span class="n">state</span><span class="p">))</span>
+            <span class="n">correct</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">expected</span><span class="p">[</span><span class="n">state</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">correct</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;state &#39;</span><span class="si">{state}</span><span class="s2">&#39; next should be </span><span class="si">{correct}</span><span class="s2"> but instead was </span><span class="si">{actual}</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TestMarkovBabbler3"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler3">[docs]</a><span class="k">class</span> <span class="nc">TestMarkovBabbler3</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestMarkovBabbler3.setUp"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler3.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span> <span class="o">=</span> <span class="n">Babbler</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="s1">&#39;tests/test1.txt&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler3.test_starters"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler3.test_starters">[docs]</a>    <span class="k">def</span> <span class="nf">test_starters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a b c&#39;</span><span class="p">,</span> <span class="s1">&#39;a b c&#39;</span><span class="p">,</span> <span class="s1">&#39;a b c&#39;</span><span class="p">,</span> <span class="s1">&#39;a b c&#39;</span><span class="p">,</span> <span class="s1">&#39;x y z&#39;</span><span class="p">,</span> <span class="s1">&#39;x y z&#39;</span><span class="p">]</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_starters</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler3.test_stoppers"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler3.test_stoppers">[docs]</a>    <span class="k">def</span> <span class="nf">test_stoppers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b c !&#39;</span><span class="p">,</span> <span class="s1">&#39;b c ?&#39;</span><span class="p">,</span> <span class="s1">&#39;c d .&#39;</span><span class="p">,</span> <span class="s1">&#39;c e .&#39;</span><span class="p">,</span> <span class="s1">&#39;d e .&#39;</span><span class="p">,</span> <span class="s1">&#39;y z .&#39;</span><span class="p">]</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_stoppers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler3.test_ngrams"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler3.test_ngrams">[docs]</a>    <span class="k">def</span> <span class="nf">test_ngrams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a b c&#39;</span><span class="p">,</span> <span class="s1">&#39;b c !&#39;</span><span class="p">,</span> <span class="s1">&#39;b c ?&#39;</span><span class="p">,</span> <span class="s1">&#39;b c d&#39;</span><span class="p">,</span> <span class="s1">&#39;b c e&#39;</span><span class="p">,</span> <span class="s1">&#39;b c x&#39;</span><span class="p">,</span> <span class="s1">&#39;c d .&#39;</span><span class="p">,</span> <span class="s1">&#39;c d e&#39;</span><span class="p">,</span> <span class="s1">&#39;c e .&#39;</span><span class="p">,</span> <span class="s1">&#39;c x y&#39;</span><span class="p">,</span> <span class="s1">&#39;d e .&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;x y z&#39;</span><span class="p">,</span> <span class="s1">&#39;y z .&#39;</span><span class="p">,</span> <span class="s1">&#39;y z a&#39;</span><span class="p">,</span> <span class="s1">&#39;y z z&#39;</span><span class="p">,</span> <span class="s1">&#39;z a b&#39;</span><span class="p">,</span> <span class="s1">&#39;z z a&#39;</span><span class="p">]</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_all_ngrams</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestMarkovBabbler3.test_next_states"><a class="viewcode-back" href="../test_markov.html#test_markov.TestMarkovBabbler3.test_next_states">[docs]</a>    <span class="k">def</span> <span class="nf">test_next_states</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a b c&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;b c !&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;b c ?&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;b c d&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;b c e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;b c x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c d .&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c d e&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c e .&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;c x y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;d e .&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;x y z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;y z .&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;EOL&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;y z a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;y z z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;z a b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;z z a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]}</span>
+        <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_all_ngrams</span><span class="p">():</span>
+            <span class="n">actual</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">babbler</span><span class="o">.</span><span class="n">get_successors</span><span class="p">(</span><span class="n">state</span><span class="p">))</span>
+            <span class="n">correct</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">expected</span><span class="p">[</span><span class="n">state</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">correct</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;state &#39;</span><span class="si">{state}</span><span class="s2">&#39; next should be </span><span class="si">{correct}</span><span class="s2"> but instead was </span><span class="si">{actual}</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<h1 class="logo"><a href="../index.html">markov-babbler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../babbler.html">babbler module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Shogo Akiyama.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
