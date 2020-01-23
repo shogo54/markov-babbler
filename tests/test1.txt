@@ -1,6 +1,6 @@
-a b c d .
-a b c e .
-a b c d e .
-a b c x y z .
-x y z a b c !
-x y z z a b c ?
+This is a sentence . This is also a sentence .
+And this is an exclamatory sentence !
+This sentence
+is broken across two lines .
+And finally , this is great .
+Of course this is great !

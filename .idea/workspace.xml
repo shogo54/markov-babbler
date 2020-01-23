@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c63f962-e4dd-474d-b02c-60103398df75" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/test4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/babbler.py" beforeDir="false" afterPath="$PROJECT_DIR$/babbler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/count.py" beforeDir="false" afterPath="$PROJECT_DIR$/count.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/markovbabbler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_cases/msd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/msd.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_cases/shakespeare.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/shakespeare.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_cases/test1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_markov.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_markov.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test3-sources.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test4-sources.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test3.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +38,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shogo\PythonProjects\markov-babbler\tests" />
       <recent name="C:\Users\shogo\PythonProjects\markov-babbler" />
     </key>
   </component>
@@ -147,7 +159,8 @@
       <updated>1579279793523</updated>
       <workItem from="1579474235946" duration="3323000" />
       <workItem from="1579494583249" duration="23000" />
-      <workItem from="1579541009035" duration="12381000" />
+      <workItem from="1579541009035" duration="13050000" />
+      <workItem from="1579721729632" duration="647000" />
     </task>
     <servers />
   </component>
@@ -155,22 +168,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="914" height="266" key="GridCell.Tab.0.bottom" timestamp="1579572079462">
+    <state width="914" height="266" key="GridCell.Tab.0.bottom" timestamp="1579587659485">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
-    <state width="914" height="266" key="GridCell.Tab.0.center" timestamp="1579572079462">
+    <state width="914" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579587659485" />
+    <state width="914" height="266" key="GridCell.Tab.0.center" timestamp="1579587659485">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
-    <state width="914" height="266" key="GridCell.Tab.0.left" timestamp="1579572079462">
+    <state width="914" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579587659485" />
+    <state width="914" height="266" key="GridCell.Tab.0.left" timestamp="1579587659484">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
-    <state width="914" height="266" key="GridCell.Tab.0.right" timestamp="1579572079462">
+    <state width="914" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579587659484" />
+    <state width="914" height="266" key="GridCell.Tab.0.right" timestamp="1579587659485">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579572079462" />
+    <state width="914" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579587659485" />
     <state width="1340" height="327" key="GridCell.Tab.1.bottom" timestamp="1579474703564">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -191,10 +204,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="883" y="212" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579494604927" />
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1579541009361">
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1579721730408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579541009361" />
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579721730408" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/markov_babbler$Unittests_for_test_markov_TestMarkovBabbler3_test_ngrams.coverage" NAME="Unittests for test_markov.TestMarkovBabbler3.test_ngrams Coverage Results" MODIFIED="1579474714494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

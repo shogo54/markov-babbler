@@ -192,7 +192,7 @@ class Babbler:
         return ' '.join(sentence)
 
 
-def main(n=3, file_name='tests/test1.txt', num_sentences=5):
+def main(n=3, file_name='tests/test2.txt', num_sentences=5):
     """
     Simple test driver.
     """
@@ -210,7 +210,7 @@ if __name__ == '__main__':
     # remove the first parameter, which should be babbler.py, the name of the script
     sys.argv.pop(0)
     n = 3
-    file_name = 'tests/test1.txt'
+    file_name = 'tests/test2.txt'
     num_sentences = 5
     if len(sys.argv) > 0:
         n = int(sys.argv.pop(0))

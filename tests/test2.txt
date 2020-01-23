@@ -1,9 +1,6 @@
-the voice of the lord breaketh the cedars
-the voice of the lord divideth the flames of fire
-the voice of the lord is powerful
-the voice of the lord is upon the waters
-the voice of the lord shaketh the wilderness
-obey the voice of the lord
-obey the voice of the lord your god
-obey the voice of the lord thy god
-obey the voice of the lord our god
+a b c d .
+a b c e .
+a b c d e .
+a b c x y z .
+x y z a b c !
+x y z z a b c ?

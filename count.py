@@ -1,18 +1,18 @@
 import sys
 
 
-def makeWordList(filename):
+def make_word_list(filename):
     # use [] to create a new empty list
-    wordlist = []
+    word_list = []
     # iterate through each line of the file
     for line in open(filename):
         # strip empty space(s) from the right of the string
         line = line.rstrip()
         # iterate through each word, using space as the delimiter to split the line
         for word in line.split(' '):
-            # add each word in the wordlist
-            wordlist.append(word)
-    return wordlist
+            # add each word in the word_list
+            word_list.append(word)
+    return word_list
 
 
 def main():
@@ -24,13 +24,13 @@ def main():
         print('Usage: {} <filename>\n'.format(sys.argv[0]))
         sys.exit(1)
     filename = sys.argv[1]
-    allwords = makeWordList(filename)
+    all_words = make_word_list(filename)
     numthe = 0
-    for word in allwords:
+    for word in all_words:
         if word == 'the':
             numthe += 1
     # print, using the weird syntax for a printf-style format string
-    print('num words={} num "the"={}'.format(len(allwords), numthe))
+    print('num words={} num "the"={}'.format(len(all_words), numthe))
 
 
 # This code runs the main method only if this file was invoked.
