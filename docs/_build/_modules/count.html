@@ -34,18 +34,18 @@
 <span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 
-<div class="viewcode-block" id="makeWordList"><a class="viewcode-back" href="../count.html#count.makeWordList">[docs]</a><span class="k">def</span> <span class="nf">makeWordList</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="make_word_list"><a class="viewcode-back" href="../count.html#count.make_word_list">[docs]</a><span class="k">def</span> <span class="nf">make_word_list</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="c1"># use [] to create a new empty list</span>
-    <span class="n">wordlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="c1"># iterate through each line of the file</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
         <span class="c1"># strip empty space(s) from the right of the string</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
         <span class="c1"># iterate through each word, using space as the delimiter to split the line</span>
         <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
-            <span class="c1"># add each word in the wordlist</span>
-            <span class="n">wordlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">wordlist</span></div>
+            <span class="c1"># add each word in the word_list</span>
+            <span class="n">word_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">word_list</span></div>
 
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../count.html#count.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -57,13 +57,13 @@
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">{}</span><span class="s1"> &lt;filename&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">allwords</span> <span class="o">=</span> <span class="n">makeWordList</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">all_words</span> <span class="o">=</span> <span class="n">make_word_list</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="n">numthe</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">allwords</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">all_words</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;the&#39;</span><span class="p">:</span>
             <span class="n">numthe</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="c1"># print, using the weird syntax for a printf-style format string</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num words=</span><span class="si">{}</span><span class="s1"> num &quot;the&quot;=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">allwords</span><span class="p">),</span> <span class="n">numthe</span><span class="p">))</span></div>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;num words=</span><span class="si">{}</span><span class="s1"> num &quot;the&quot;=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_words</span><span class="p">),</span> <span class="n">numthe</span><span class="p">))</span></div>
 
 
 <span class="c1"># This code runs the main method only if this file was invoked.</span>
